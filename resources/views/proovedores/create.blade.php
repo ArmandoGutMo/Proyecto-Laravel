@@ -24,7 +24,12 @@
             <label for="email" class="form-label">Email</label>
             <input type="text" class="form-control" id="email" name="email">
           </div>
-        <br>
+          <br>
+          <div class="mb-3">
+            <label for="imagen" class="form-label">Subir imagen</label>
+            <br>
+            <input id="imagen" type="file" name="imagen">
+          </div>
         <br>
         <button type="submit" class="btn btn-success">Guardar</button>
     </form>

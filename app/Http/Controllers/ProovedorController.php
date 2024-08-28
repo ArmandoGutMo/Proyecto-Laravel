@@ -12,7 +12,8 @@ class ProovedorController extends Controller
      */
     public function index()
     {
-        //
+        $proveer = Proovedores::all();
+        return view('proovedores.index', compact('proveer'));
     }
 
     /**
@@ -33,6 +34,9 @@ class ProovedorController extends Controller
         $proovedor->nit = $request->input('nit');
         $proovedor->telefono = $request->input('telefono');
         $proovedor->email = $request->input('email');
+        if ($request->hasFile('imagen')){
+            $proovedor->imagen = $request->file('imagen')->store('public/proovedor');
+        }
         $proovedor->save();
         return 'Proovedor agregado con éxito';
     }
@@ -42,7 +46,10 @@ class ProovedorController extends Controller
      */
     public function show(string $id)
     {
-        //
+        {
+            $proveer = Proovedores::find($id);
+            return view('proovedores.show', compact('proveer'));
+        }
     }
 
     /**
